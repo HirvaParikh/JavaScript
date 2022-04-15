@@ -1,0 +1,168 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s3">
+            <form #memberForm="ngForm" (ngSubmit)="onSubmit(memberForm)">
+              <input
+                type="hidden"
+                name="_id"
+                #_id="ngModel"
+                [(ngModel)]="memberService.selectedMember._id"
+              />
+              <div class="row">
+                <div class="input-field col s12">
+                  <input
+                    type="text"
+                    name="FirstName"
+                    #FirstName="ngModel"
+                    [(ngModel)]="memberService.selectedMember.FirstName"
+                    placeholder="Enter First Name Here.."
+                    maxlength="20"
+                    required
+                  />
+                  <label
+                    >First Name:
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+                <div class="input-field col s12">
+                  <input
+                    type="text"
+                    name="LastName"
+                    #LastName="ngModel"
+                    [(ngModel)]="memberService.selectedMember.LastName"
+                    placeholder="Enter Last Name Here.."
+                    maxlength="20"
+                    required
+                  />
+                  <label
+                    >Last Name:
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+                <div class="input-field col s12">
+                  <input
+                    type="text"
+                    name="ContactNo"
+                    #ContactNo="ngModel"
+                    [(ngModel)]="memberService.selectedMember.ContactNo"
+                    placeholder="Enter Contact No. Here.."
+                    maxlength="10"
+                    required
+                  />
+                  <label
+                    >Contact No.:
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+                <!-- <div class="input-field col s12"> -->
+                <label
+                  >Gender:
+                  <label class="red-text">*</label>
+                </label>
+                <mat-radio-group
+                  name="Gender"
+                  #Gender="ngModel"
+                  [(ngModel)]="memberService.selectedMember.Gender"
+                  aria-label="Select your gender"
+                  required
+                >
+                  <mat-radio-button value="Male">male</mat-radio-button>
+                  <mat-radio-button value="Female">female</mat-radio-button>
+                </mat-radio-group>
+                <!-- </div> -->
+                <br />
+                <br />
+                <div class="input-field col s12">
+                  <input
+                    type="text"
+                    name="EmailId"
+                    #EmailId="ngModel"
+                    [(ngModel)]="memberService.selectedMember.EmailId"
+                    placeholder="Enter Email Id Here.."
+                    maxlength="50"
+                    required
+                  />
+                  <label
+                    >Email Id:
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+                <div class="input-field col s12">
+                  <input
+                    type="password"
+                    name="Password"
+                    #Password="ngModel"
+                    [(ngModel)]="memberService.selectedMember.Password"
+                    placeholder="Enter Password Here.."
+                    maxlength="12"
+                    required
+                  />
+                  <label
+                    >Password:
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <button
+                    class="btn MyBtn right"
+                    type="button"
+                    (click)="resetFormCancel(memberForm)"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    class="btn MyBtn right"
+                    type="submit"
+                    [disabled]="!memberForm.valid"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s9">
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Contact No.</th>
+                  <th>Email Id</th>
+                  <th>Gender</th>
+                  <th>Status</th>
+                  <th>Edit / Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let M of memberService.Members">
+                  <td>{{ M._id }}</td>
+                  <td>{{ M.FirstName }}</td>
+                  <td>{{ M.LastName }}</td>
+                  <td>{{ M.ContactNo }}</td>
+                  <td>{{ M.EmailId }}</td>
+                  <td>{{ M.Gender }}</td>
+                  <td>{{ M.Status }}</td>
+                  <td>
+                    <a class="action-btn" (click)="onEdit(M)">
+                      <i class="material-icons">edit</i>
+                    </a>
+                    <a class="action-btn" (click)="onDelete(M._id, memberForm)">
+                      <i class="material-icons">delete</i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
