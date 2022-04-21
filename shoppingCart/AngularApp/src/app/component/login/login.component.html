@@ -1,0 +1,51 @@
+<!-- <section class="vh-100" style="background-color: #e8edf7;"> -->
+<div class="container py-5 h-80">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="card shadow-2-strong" style="border-radius: 3rem; background-color: rgba(238, 238, 238, 0.6) ;box-shadow: 13px 13px rgba(14, 14, 14, 0.6)">
+        <div class="card-body p-5">
+          <form #memberForm="ngForm" (ngSubmit)="onSubmit(memberForm)">
+            <h1 class="mb-5 text-center">Sign in</h1>
+
+            <div class="form-outline mb-4">
+              <label class="form-check-label">Email</label>
+              <input
+                type="email"
+                name="Email"
+                #Email="ngModel"
+                [(ngModel)]="memberService.selectedMember.Email"
+                class="form-control form-control-lg"
+                required
+              />
+            </div>
+
+            <div class="form-outline mb-4">
+              <label class="form-check-label">Password</label>
+              <input
+                type="password"
+                name="Password"
+                #Password="ngModel"
+                [(ngModel)]="memberService.selectedMember.Password"
+                class="form-control form-control-lg"
+                required
+              />
+            </div>
+
+            <button
+            style="color: rgb(0, 0, 0);background-color: transparent;"
+              class="btn btn-dark btn-lg btn-block form-control"
+              type="submit"
+              [disabled]="!memberForm.valid"
+            >
+              Login
+            </button>
+            <div class="form-control-lg text-center">
+              <a href="register"style="color: black;">Create New Account</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </section> -->

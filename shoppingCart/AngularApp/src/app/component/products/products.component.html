@@ -1,0 +1,38 @@
+<div id="product">
+  <div id="productImage"></div>
+</div>
+<div class="container">
+  <div class="row">
+    <ng-container
+      *ngFor="let item of filterCategory | filter: searchKey:'title'"
+    >
+      <div  class="card col-md-3" style="background-color: rgba(255, 255, 255, 0.6);" >
+        <img src="{{ item.image }}" alt="" />
+        <h5
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.title }}
+        </h5>
+        <p
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.description }}
+        </p>
+        <p><strong>Price:</strong> ${{ item.price }}</p>
+        <button [innerHtml]="item.isAdded ? 'remove from cart':'add to cart'" zX id={{item.id}} style="color: rgb(0, 0, 0); background-color: transparent;" class="btn btn-dark" (click)="addtocart(item)">
+          Add to cart
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -10,12 +10,14 @@ import { ExamModule } from './exam/exam.module';
 import { FormsModule } from '@angular/forms';
 import { NotFoundService } from './services/notfound.service';
 import { ProductRoutingModule } from './product/product-routing.module';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     NotfoundComponent,
+    DemoComponent,
     
   ],
   imports: [

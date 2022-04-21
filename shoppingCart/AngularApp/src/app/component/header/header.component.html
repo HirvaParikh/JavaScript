@@ -1,0 +1,47 @@
+<header>
+  <div id="nav" class="navbar navbar-dark shadow-sm">
+    <button style="color: rgb(0, 0, 0); background-color: transparent;"
+      class="navbar-brand align-item-center d-flex"
+      routerLink="products"
+      class="btn"
+    >
+      &nbsp;<i style="font-size: 30px" class="fa fa-shopping-bag">&nbsp; </i>
+      <strong style="font-size: 25px">Let's shop</strong>
+    </button>
+    <ng-container *ngIf="!isSignedIn ">
+      <button style="color: rgb(0, 0, 0); background-color: transparent;"
+        routerLink="login"
+        class="btn"
+        style="position: absolute; right: 250px"
+      >
+        <i style="font-size: 20px" class="fa fa-sign-in">&nbsp; </i>
+        <strong style="font-size: 18px">Sign In</strong>
+      </button>
+      <button style="color: rgb(0, 0, 0); background-color: transparent;"
+        routerLink="register"
+        class="btn"
+        style="position: absolute; right: 100px"
+      >
+        <i style="font-size: 20px" class="fa fa-user-plus">&nbsp; </i>
+        <strong style="font-size: 18px">Sign Up</strong>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="isSignedIn">
+      <button style="color: rgb(0, 0, 0); background-color: transparent;"
+        routerLink="login"
+        class="btn"
+        style="position: absolute; right: 100px"
+        (click)="signOut()"
+      >
+        <i style="font-size: 20px" class="fa fa-sign-out">&nbsp; </i>
+        <strong style="font-size: 18px">Sign Out</strong>
+      </button>
+    </ng-container>
+
+    <button style="color: rgb(0, 0, 0); background-color: transparent;" routerLink="cart" class="btn">
+      <i style="font-size: 25px" class="fas fa-cart-plus"></i>
+      <div style="font-size: 10px" class="badge bg-danger">{{ totalItem }}</div>
+    </button>
+  </div>
+</header>
